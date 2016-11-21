@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>$copyright$</copyright>
+		<projectUrl>https://github.com/zanganeh/Zanganeh.EPiServer.Addon.TextAnalytics</projectUrl>
+		<tags>Episerver Azure Text Analytics</tags>
+	</metadata>
+</package>
