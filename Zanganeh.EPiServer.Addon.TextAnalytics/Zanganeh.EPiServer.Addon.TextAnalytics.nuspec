@@ -3,7 +3,7 @@
 	<metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>$id$</id>
     <version>$version$</version>
-    <authors>$author$</authors>
+    <authors>Aria Zanganeh</authors>
     <owners>Aria Zanganeh</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This is marriage between Episerver CMS and Azure Cognitive Text Analytics</description>
