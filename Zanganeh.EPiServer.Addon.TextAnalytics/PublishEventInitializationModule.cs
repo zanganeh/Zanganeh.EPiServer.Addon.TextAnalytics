@@ -1,20 +1,20 @@
 ﻿using EPiServer;
 using EPiServer.Core;
-using EPiServer.Web;
 using EPiServer.Core.Html;
 using EPiServer.Framework;
-using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
 using System.Collections.Generic;
 using System.Linq;
+using Web = EPiServer.Web;
+using Initialization = EPiServer.Framework.Initialization;
 
 namespace Zanganeh.EPiServer.Addon.TextAnalytics
 {
     [InitializableModule]
-    [ModuleDependency(typeof(InitializationModule))]
+    [ModuleDependency(typeof(Web.InitializationModule))]
     public class PublishEventInitializationModule : IInitializableModule
     {
-        public void Initialize(InitializationEngine context)
+        public void Initialize(Initialization.InitializationEngine context)
         {
             contentEvents.Service.PublishingContent += PublishingContent;
         }
@@ -31,7 +31,7 @@ namespace Zanganeh.EPiServer.Addon.TextAnalytics
             }
         }
 
-        public void Uninitialize(InitializationEngine context)
+        public void Uninitialize(Initialization.InitializationEngine context)
         {
             contentEvents.Service.PublishingContent -= PublishingContent;
         }
