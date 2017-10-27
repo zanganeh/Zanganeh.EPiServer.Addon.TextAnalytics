@@ -5,8 +5,10 @@ using EPiServer.Framework;
 using EPiServer.ServiceLocation;
 using System.Collections.Generic;
 using System.Linq;
-using Web = EPiServer.Web;
+using System.Text.RegularExpressions;
+using System.Web;
 using Initialization = EPiServer.Framework.Initialization;
+using Web = EPiServer.Web;
 
 namespace Zanganeh.EPiServer.Addon.TextAnalytics
 {
@@ -50,12 +52,16 @@ namespace Zanganeh.EPiServer.Addon.TextAnalytics
                     var propertyVale = textAnalysisContentProperty.GetValue(productPage);
                     if (propertyVale != null)
                     {
-                        yield return TextIndexer.StripHtml(propertyVale.ToString(), 0);
+                        var strPropertyValue = propertyVale.ToString();
+                        if (!string.IsNullOrWhiteSpace(strPropertyValue))
+                        {
+                            var noHtmlString = HttpUtility.HtmlDecode(TextIndexer.StripHtml(strPropertyValue, 0));
+                            yield return Regex.Replace(noHtmlString, @"[^\u0000-\u007F]+", string.Empty);
+                        }
                     }
                 }
             }
         }
-
 
         Injected<IContentEvents> contentEvents;
         Injected<ITextAnalyticsService> textAnalyticsService;
